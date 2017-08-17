@@ -2,25 +2,25 @@
 
 FILE_TYPE=$1
 FILE_NAME=$2
+RES_FOLDER="$(dirname "$0")/.generate.res"
 
 if [[ "$FILE_NAME" == ""  || "$FILE_TYPE" == "" ]]
 then
-    echo -e "ERROR: wrong syntax. Use it like that:"
-    echo -e "\tgenerate <file type> <file name>"
+    echo -e "$(tput setaf 1)ERROR:$(tput sgr0) wrong syntax. Use it like that:"
+    echo -e "\t$(tput bold)generate$(tput sgr0) $(tput dim)<file type> <file name>$(tput sgr0)"
     exit 1
 fi
 
 case $FILE_TYPE in
     sh|script)
-        echo -e "=== Generating script $FILE_NAME ==="
         touch $FILE_NAME
         chmod +x $FILE_NAME
-        echo -e "#!/bin/bash\n" > $FILE_NAME
-        echo -e "=== Script file $FILE_NAME was generated"
+        cat "$RES_FOLDER/script.template" > $FILE_NAME 
+        echo -e "$(tput setaf 2)=== Script file $FILE_NAME was generated$(tput sgr0)"
         ;;
     *)
-        echo -e "ERROR: wrong file type! Available types:"
-        echo -e "\tsh, script - creates script file template"
+        echo -e "$(tput setaf 1)ERROR:$(tput sgr0) wrong file type! Available types:"
+        echo -e "\t$(tput bold)sh, script$(tput sgr0) - creates script file template"
         exit 1
         ;;
 esac
