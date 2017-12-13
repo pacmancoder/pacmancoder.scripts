@@ -1,0 +1,7 @@
+#!/bin/bash
+
+SRC_DIR='/home/sauron/core'
+DEST_DIR='/mnt/archive/backup'
+
+rsync -aq --delete $SRC_DIR $DEST_DIR
+echo "Last backup date: $(date -R)" > "$DEST_DIR/backup.info"

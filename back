@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Script changes current folder to previous active
+# Example:
+# [/etc] cd /usr
+# [/usr] cd -
+# [/etc]
+
+cd - 

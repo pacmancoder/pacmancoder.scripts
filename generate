@@ -16,7 +16,7 @@ case $FILE_TYPE in
         touch $FILE_NAME
         chmod +x $FILE_NAME
         cat "$RES_FOLDER/script.template" > $FILE_NAME 
-        echo -e "$(tput setaf 2)=== Script file $FILE_NAME was generated$(tput sgr0)"
+        echo -e "$(tput setaf 2)=== Script file $FILE_NAME was generated ===$(tput sgr0)"
         ;;
     *)
         echo -e "$(tput setaf 1)ERROR:$(tput sgr0) wrong file type! Available types:"
